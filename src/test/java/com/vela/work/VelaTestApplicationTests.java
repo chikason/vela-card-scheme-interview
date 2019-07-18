@@ -35,7 +35,7 @@ public class VelaTestApplicationTests {
           Card card1 = cardRepo.findByCardNo(card.getCardNo());
 
           //check 
-          asserThat(card1.getScheme())
+          assertThat(card1.getScheme())
                    .isEqualTo(card.getScheme());
 
    }
