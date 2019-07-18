@@ -10,7 +10,19 @@
 <h4 class="h" align="center"><font size="+4" face="Tahoma, Geneva, sans-serif" color="#FFFFFF" >
   Vela Card Statistics Portal</font></h1>
  </div>
- 
+ <div align="center">
+   <font size="+3">  Start: <span th:text="${card_stat.start}"></span></font><br/>
+   <font size="+3">  Limit: <span th:text="${card_stat.limit}"></span></font><br/>
+   <font size="+3">  Size:  <span th:text="${card_stat.size}"></span></font><br/>
+       <table>
+         <tr>
+           <th>card</th>
+           <th>records</th></tr>
+         <tr th:each="stats: ${card_stat.payload}">
+           <td th:text="${stats.payload.cardNo}"></td>
+           <td th:text="${stats.payload.records}"></td>
+         </tr>
+  </div>
 
 </body>
 </html>
