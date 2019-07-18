@@ -4,3 +4,5 @@ CardModel returns the json information of the card from card table in the databa
 while StatsModel does so for stats table,
 the root directory/package of the web app is 'com.vela'
 there are two html files cardInfo.html and showstats.html for displaying the information to the cliens
+NOTE:
+the two JSON format is return by the two model class
