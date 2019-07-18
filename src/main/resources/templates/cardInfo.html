@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Card Verification Information</title>
+<link rel="stylesheet" th:href="@{/css/pagestyle.css}" />
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+<div>
+<h4 class="h" align="center"><font size="+4" face="Tahoma, Geneva, sans-serif" color="#FFFFFF" >
+  Vela Card Verification Portal</font></h1>
+ </div>
+
+<div align="center" th:if="${success}== true">
+  <font size="+3"><span th:text="${msg}"></span></font><br/>
+  <font size="+2">Scheme:&nbsp;&nbsp;&nbsp;<span th:text="${scheme}"></span></font><br/>
+  <font size="+2">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${type}"></span></font><br/>
+  <font size="+2">Card no:&nbsp;&nbsp;&nbsp;<span th:text="${card_no}"></span></font>
+  
+</div>
+<p align="center" th:if="${success}== false">
+   <font size="+3"><span th:text="${msg}"></span></font><br/>
+</p>
+
+
+</body>
+</html>
