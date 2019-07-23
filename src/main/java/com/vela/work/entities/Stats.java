@@ -11,20 +11,20 @@ public class Stats {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 	
-	private long cardNo;
+	private String cardNo;
 	private int records;
 	
 	public Stats() {
 	}
 
-	public Stats(long id, long cardNo, int records) {
+	public Stats(long id, String cardNo, int records) {
 		super();
 		this.id = id;
 		this.cardNo = cardNo;
 		this.records = records;
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -32,11 +32,11 @@ public class Stats {
 		this.id = id;
 	}
 
-	public long getCardNo() {
+	public String getCardNo() {
 		return cardNo;
 	}
 
-	public void setCardNo(long cardNo) {
+	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
 	}
 
