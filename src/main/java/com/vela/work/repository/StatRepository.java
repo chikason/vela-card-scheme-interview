@@ -12,11 +12,11 @@ import com.vela.work.entities.Stats;
 @Repository
 public interface StatRepository extends JpaRepository<Stats, Long>{
 	
-	public Stats findByCardNo(long card_no);
+	public Stats findByCardNo(String cardNo);
 	
 	@Transactional
 	@Modifying
 	@Query("UPDATE Stats stats SET stats.records = stats.records +1 WHERE stats.cardNo = ?1")
-	public void updateStatistics(long card_no);
+	public void updateStatistics(String cardNo);
 
 }
