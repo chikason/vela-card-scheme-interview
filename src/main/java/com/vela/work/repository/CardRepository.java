@@ -8,6 +8,6 @@ import com.vela.work.entities.Card;
 @Repository
 public interface CardRepository extends JpaRepository<Card, Long> {
 	
-	public Card findByCardNo(String card);
+	public Card findByCardNo(String cardNo);
 
 }
