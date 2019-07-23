@@ -16,7 +16,7 @@ import com.vela.work.repository.StatRepository;
 
 
 @Service
-public class cardServiceImp implements cardService{
+public class CardServiceImp implements CardService{
 	
 	@Autowired
 	CardRepository cardRepo;
@@ -26,9 +26,9 @@ public class cardServiceImp implements cardService{
 
 
 	@Override
-	public Card getCardVerified(Long card_no) {
+	public Card getCardVerified(String cardNo) {
 		// TODO Auto-generated method stub
-		return cardRepo.findByCardNo(card_no);
+		return cardRepo.findByCardNo(cardNo);
 	}
 
 	@Override
@@ -36,17 +36,17 @@ public class cardServiceImp implements cardService{
 		// TODO Auto-generated method stub
 		Pageable page = PageRequest.of(start, limit);
 		List<Stats> stats = new ArrayList<>();
-		try {
+		
 		Page<Stats>  pg = statRepo.findAll(page);
 		stats = pg.getContent();
 		
-		}
-		catch(Exception e) { 
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-			}
-		
 		return stats;
+	}
+
+	@Override
+	public void addCard(Card card) {
+		// TODO Auto-generated method stub
+		cardRepo.save(card);
 	}
 
 }
