@@ -11,7 +11,7 @@ public class Card {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	private long cardNo;
+	private String cardNo;
 	private String scheme;
 	private String type;
 	private String bank;
@@ -20,7 +20,7 @@ public class Card {
 	public Card() {
 	}
 
-	public Card(long id, long cardNo, String scheme, String type, String bank) {
+	public Card(long id, String cardNo, String scheme, String type, String bank) {
 		super();
 		this.id = id;
 		this.cardNo = cardNo;
@@ -40,12 +40,12 @@ public class Card {
 	}
 	
 
-	public long getCardNo() {
+	public String getCardNo() {
 		return cardNo;
 	}
 	
 
-	public void setCardNo(long cardNo) {
+	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
 	}
 	
