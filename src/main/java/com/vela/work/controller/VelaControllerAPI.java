@@ -42,15 +42,18 @@ public class VelaControllerAPI {
 	@GetMapping(path="verify/{card_no}")
 	private ModelAndView verifyCard(@PathVariable("card_no")String cardNo, ModelMap modelmap) {
 		//makes an API call to get the data of the card.
-		 CardModel model = template.getForObject(url+cardNo, CardModel.class);
-		 Card card = new Card();		   
+		CardModel cardModel = new CardModel();
+		 Card model = template.getForObject(url+cardNo, Card.class);
 		 
 		          if(model == null) {
 		        	  //input the card into the database
+		        	  Card card = new Card();
 		        	  card.setCardNo(cardNo);
 		        	  cardservice.addCard(card);
 		        	  
 		  			//shows the client or user the response detail on html file
+		        	  cardModel.setPayload(card);
+		        	  cardModel.setSuccess(false);
 		  			return new ModelAndView("cardInfo", getModel(null, cardNo, "invalid card."));
 		          }
 		          else {
@@ -68,7 +71,9 @@ public class VelaControllerAPI {
 			       }
 			       
 			//shows the client or user the response detail on html file
-			  return new ModelAndView("cardInfo", getModel(model, cardNo, "Card Exist"));
+			       cardModel.setPayload(model);
+			       cardModel.setSuccess(true);
+			  return new ModelAndView("cardInfo", getModel(cardModel, cardNo, "Card Exist"));
 
 		  }
 	}
